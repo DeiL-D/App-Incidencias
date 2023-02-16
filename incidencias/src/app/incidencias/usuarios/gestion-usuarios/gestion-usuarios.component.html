@@ -1,0 +1,50 @@
+<nav class="navbar">
+    Usuarios
+    <button class="btn-menu" routerLink="/dashboard" >Ir al menú</button>
+  </nav>
+<br><br><br>  
+<div *ngIf="eliminated===false">
+    
+        
+           
+
+        
+                <div class="grid-container">
+                    <div class="usuarios-container">
+                        <input type="text" placeholder="Buscar por nombre" [(ngModel)]="nombreBuscado">
+                        <ul *ngIf="usuarios.length > 0">
+                          <li *ngFor="let usuario of usuarios" class="usuario-item" 
+                            [hidden]="nombreBuscado && !usuario.data.email2.toLowerCase().includes(nombreBuscado.toLowerCase())">
+                          <p><strong>Nombre:</strong> {{ usuario.data.email2 }}</p>
+                          <p><strong>Contraseña:</strong>............</p>
+                          <form [formGroup]="rolForm[usuario.documentId]" (ngSubmit)="onSubmit(usuario.documentId)">
+                            <p>  
+                              <select formControlName="rol" id="rol">
+                                <option value="admin">Admin</option>
+                                <option value="gestor">Gestor</option>
+                                <option value="directivo">Directivo</option>
+                                <option value="unknow" selected>Desconocido</option>
+                              </select>
+                            </p>
+                            <button type="submit">Actualizar</button>
+                          </form>
+                          <button (click)="eliminaUsuario(usuario.documentId)">Eliminar Usuario</button>
+                        </li>
+                      </ul>
+                    </div>
+
+
+
+  </div>
+</div>
+  <div *ngIf="eliminated === true">
+    
+    <div class="message-overlay" *ngIf="eliminated">
+        <div class="message-box">
+          <h3>Usuario eliminado</h3>
+          <p>El usuario ha sido eliminado correctamente.</p>
+          <button (click)="goBack()">Continuar</button>
+        </div>
+      </div>
+  </div>
+ 

@@ -1,0 +1,63 @@
+<nav class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <button *ngIf="!isLoged" routerLink="/Login" class="nav-link">Iniciar sesión</button>
+    </li>
+    <li class="nav-item">
+      <button *ngIf="isLoged && rol !== 'unknow'" routerLink="/dashboard" class="nav-link">Menu</button>
+    </li>
+    <li class="nav-item">
+      <button *ngIf="isLoged" (click)="logout()" class="nav-link">Log Out</button>  
+      <div  *ngIf="isLoged && rol === 'unknow'" > Espera A Que Tu Cuenta Sea verificada </div>
+    </li>
+  </ul>
+</nav>
+<div *ngIf="!submitted" >
+
+
+<form [formGroup]="formIncidencias" (ngSubmit)="AddIncidencias()">
+   
+    
+    <label for="incidencia" >Incidencia</label>
+    <div>
+
+        <textarea formControlName="incidencia" placeholder="Introduzca aqui su incidencia" id="incidencia" class="formControl" rows="5" cols="30" style="resize: none; "></textarea>
+        
+      
+    </div>
+    <div>
+      <label for="lugar">Lugar</label>
+    <input type="text" formControlName="lugar" id="lugar" placeholder="ej. Aula de informatica, 5ºc" class="formControl">
+    
+  </div>
+    <div>
+        <label for="fecha">Fecha</label>
+      <input type="text" formControlName="fecha" id="fecha" placeholder="ej. 11/03/21" class="formControl">
+      
+    </div>
+    
+   
+   
+    <br/>
+    <input type="submit" value="Guardar" class="btn btn-info">
+    
+  </form>
+  
+  </div>
+
+
+<div class="message-overlay" *ngIf="submitted">
+      <div class="message-box">
+        <h3>Succes</h3>
+        <p>Incidencia Enviada Con Exito.</p>
+        <button (click)=" falsoSubm()">Continuar</button>
+      </div>
+</div>
+
+ 
+
+ 
+  
+  
+
+

@@ -1,0 +1,50 @@
+<nav>
+  <h2>Listado de incidencias</h2>
+  <div class="nav-items">
+    <div class="nav-item">
+      
+      <a class="menu-link"routerLink="/dashboard">Menu</a>
+    </div>
+  </div>
+</nav>
+<br><br><br><br>
+<label for="revisado-select">Filtrar por revisado:</label>
+<select id="revisado-select" name="revisado" [(ngModel)]="revisadoSeleccionado" (ngModelChange)="filtrarPorRevisado(revisadoSeleccionado)">
+  <option value="todos">Todos</option>
+  <option value="revisado">Revisado</option>
+  <option value="no revisado">No Revisado</option>
+</select>
+<ul *ngIf="incidencias.length > 0" >
+  <li *ngFor="let incidencia of incidencias" style="border: 3px solid gray; padding: 10px; margin-bottom: 10px;">
+    <p><strong>Fecha:</strong> {{ incidencia.data.fecha }}</p>
+    <p><strong>Asignado a:</strong> {{ incidencia.data.asignado }}</p>
+    <p><strong>Incidencia:</strong> {{ incidencia.data.incidencia }}</p>
+    <p><strong>Estado:</strong> {{ incidencia.data.estado }}</p>
+    <p><strong>Lugar:</strong> {{ incidencia.data.lugar }}</p>
+    <form [formGroup]="revisionForm[incidencia.documentId]" (ngSubmit)="onSubmit(incidencia.documentId)">
+      <p>
+        
+      
+        <select formControlName="revisado"  id="revisado" *ngIf="rol == 'admin' || rol == 'directivo'" >
+          <option value="revisado"> revisado</option>
+          <option value="no revisado" selected>No revisado</option>
+        </select>
+      </p>
+      <button type="submit" *ngIf="rol == 'admin' || rol == 'directivo'" class="personalizado">Actualizar</button>
+    </form> 
+    <div *ngIf="rol == 'gestor' || rol == 'admin'">
+      <a class="personalizado"  routerLink="/gestion/{{incidencia.documentId}}"  >Editar</a> <br>
+    </div>
+   
+  
+  <div>
+    
+  </div>
+</ul>
+
+<div class="empty-incidencias" *ngIf="incidencias.length === 0">
+  <p>No hay incidencias para mostrar.</p>
+  
+</div>
+
+

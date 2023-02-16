@@ -1,0 +1,110 @@
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  }
+  
+  nav h2 {
+  color: #fff;
+  margin: 0;
+  }
+  
+  nav a {
+  color: #fff;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  text-decoration: none;
+  }
+  
+  nav .nav-items {
+  display: flex;
+  }
+  
+  nav .nav-item {
+  margin: 0 10px;
+  }
+  
+  ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
+  
+  li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  }
+  
+  strong {
+  color: #333;
+  }
+  
+  select {
+  width: 30%;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  }
+  
+  button[type="submit"] {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  a[routerLink] {
+  color: #333;
+  text-decoration: none;
+  }
+  
+  .empty-incidencias {
+  text-align: center;
+  padding: 20px;
+  }
+  
+  .menu-link {
+  text-decoration: none;
+  color: #333;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  }
+  
+  nav a[routerLink="/dashboard"] {
+  color: #000;
+  }
+  nav a[routerLink="/gestion/{{incidencia.documentId}}"]{
+    color: #000; 
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .personalizado {
+    display: inline-block; /* Mostrar como elemento en línea */
+    margin-bottom: 10px; /* Margen inferior */
+    padding: 10px 20px; /* Espacio de relleno interno */
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Sin decoración del texto */
+    border-radius: 4px; /* Radio de borde */
+    font-size: 16px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar el cursor del mouse al pasar sobre el enlace */
+  }
+  
+  .personalizado:hover {
+    background-color: #0056b3; /* Cambiar el color de fondo al pasar sobre el enlace */
+  }

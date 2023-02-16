@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span class="logo">Papito Dashboard</span>
+  <button class="logout-btn" (click)="logout()">Log Out</button>
+</mat-toolbar>
+
+<div class="background">
+  <h1>Incidencias Dashboard</h1>
+
+
+  <div class="cta">
+    <a target="_blank" href="https://github.com/DeiL-D" class="btn btn-primary">View Source Code</a>
+  </div>
+
+  <div class="menu">
+    <a target="_blank" routerLink="/introduccion" class="btn btn-menu">Introducción</a>
+    <a target="_blank" routerLink="/revision" class="btn btn-menu">Revisión</a>
+    <a target="_blank" *ngIf="rol === 'admin'" routerLink="/usuarios" class="btn btn-menu">Usuarios</a>
+  </div>
+</div>

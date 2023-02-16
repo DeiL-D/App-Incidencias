@@ -1,0 +1,33 @@
+<span *ngIf="!eliminated">
+<form [formGroup]="formIncidencias"(ngSubmit)="onSubmit()" >
+    <div>
+        <label for="asignado">Estado:</label>
+        <select formControlName="estado" id="estado" >
+            <option value="Leida">Leida</option>
+            <option value="Asignada">Asignada</option>
+            <option value="Comenzada">Comenzada</option>
+            <option value="Terminada">Terminada</option>
+        </select>
+    </div>
+    <div>
+      <label for="asignado">Asignado a:</label>
+      <input type="text" formControlName="asignado" id="asignado" class="formControl">
+    </div>
+    
+    <div>
+      <button type="submit">Guardar</button>
+    </div>
+  </form>
+  <button (click)="eliminaIncidencia()">Eliminar incidencia</button>
+  <button (click)="goBack()">Volver</button>
+</span>
+<div *ngIf="eliminated === true">
+    
+  <div class="message-overlay" *ngIf="eliminated">
+      <div class="message-box">
+        <h3>Incidencia eliminada</h3>
+        <p>Incidencia ha sido eliminado correctamente.</p>
+        <button (click)="goBack()">Continuar</button>
+      </div>
+    </div>
+</div>
