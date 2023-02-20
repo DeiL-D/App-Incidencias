@@ -9,7 +9,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
+ error: string ='';
+ showError: boolean = false;
   constructor( 
     private readonly authService: AuthService,
     private readonly router: Router,
@@ -19,7 +20,7 @@ export class LoginPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.showError = false;
   }
   login(loginData: LoginData) {
     this.authService
@@ -29,7 +30,13 @@ export class LoginPageComponent implements OnInit {
         this.authService.isLoged=true;
     
     })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {console.log(e.message);
+        if(e)
+        this.error="Correo o Contraseña incorrectos";
+        this.showError = true;
+      
+      
+      });
   }
   loginWithGoogle() {
     this.authService
@@ -37,7 +44,14 @@ export class LoginPageComponent implements OnInit {
       .then(() => {this.router.navigate(['/dashboard']);
       this.authService.isLoged=true;
     })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {console.log(e.message);
+        if(e)
+        this.error="Correo o Contraseña incorrectos";
+      
+      
+      }
+      
+      );
   }
   goBack() {
     this.router.navigate(['introduccion']);

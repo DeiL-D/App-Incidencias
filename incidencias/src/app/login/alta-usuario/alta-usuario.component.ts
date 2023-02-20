@@ -16,7 +16,8 @@ export class AltaUsuarioComponent implements OnInit {
 
   
   coleccion='usuarios';
- 
+ ShowError: boolean = false;
+ error: string ='';
   usuarios = {
     rol:'unknow',
     email2:'',
@@ -57,7 +58,16 @@ export class AltaUsuarioComponent implements OnInit {
             localStorage.setItem('role',  doc.id);
           })
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        if (e.code === 'auth/weak-password') {
+          this.error = 'La contraseña debe tener mayusculas y minusculas y tener por lo menos 6 caracteres';
+        } else if (e.code === 'auth/email-already-in-use') {
+          this.error = 'Correo ya registrado';
+        } else {
+          this.error = 'Ha ocurrido un error';
+        }
+      });
+
   }
   
 }

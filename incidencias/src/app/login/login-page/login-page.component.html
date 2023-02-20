@@ -10,12 +10,22 @@
       <button mat-button routerLink="/introduccion">Volver</button>
     </div>
     <div class="form-container">
-      <h1>Welcome to NgBytes Login</h1>
+      <h1>Login</h1>
       <button class="mat-raised-button" (click)="loginWithGoogle()">
         Sign In with Google
       </button>
       <h5>Or sign in with your email</h5>
       <app-loginform (formData)="login($event)"></app-loginform>
+      <div *ngIf="error" class="error-container">
+        <mat-card>
+          <mat-card-content>
+            <div class="error-header">
+              <mat-icon class="error-close-icon" (click)="error = ''">close</mat-icon>
+            </div>
+            <p class="error-message">{{ error }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

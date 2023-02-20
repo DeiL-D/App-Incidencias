@@ -9,8 +9,8 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AltaUsuarioComponent } from './alta-usuario/alta-usuario.component';
 import { Location } from '@angular/common';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     LoginformComponent,
@@ -25,7 +25,8 @@ import { Location } from '@angular/common';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    
+    MatCardModule,
+    MatIconModule
     
   ],
   providers: [

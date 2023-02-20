@@ -4,6 +4,16 @@
       <h1>Welcome to NgBytes Register</h1>
       <h5>Register with your email</h5>
       <app-loginform (formData)="register($event)"></app-loginform> 
+      <div *ngIf="error" class="error-container">
+        <mat-card>
+          <mat-card-content>
+            <div class="error-header">
+              <mat-icon class="error-close-icon" (click)="error = ''">close</mat-icon>
+            </div>
+            <p class="error-message">{{ error }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
     <div class="text-container">
       <h1>Hey Buddy</h1>
@@ -11,7 +21,7 @@
         Already have an awesome account? Go ahead and click the button below to
         sign in!
       </p>
-      <button mat-button routerLink="/introduccion">Sign in</button>
+      <button mat-button routerLink="/Login">Sign in</button>
       
     </div>
   </div>
