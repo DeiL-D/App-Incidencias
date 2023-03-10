@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'gestion', loadChildren: () => import('./incidencias/gestion/gestion.module').
-                                          then(m => m.GestionModule),canActivate: [HasRoleGuard],
+                                          then((m) => m.GestionModule),canActivate: [HasRoleGuard],
                                           data: {
                                             allowedRoles: ['admin', 'gestor']
                                           },
@@ -36,18 +36,18 @@ const routes: Routes = [
   },
  {
     path: 'introduccion', loadChildren: () => import('./incidencias/introduccion/introduccion.module').
-                                            then(m => m.IntroduccionModule)
+                                            then((m) => m.IntroduccionModule)
  },
  {
   path: 'usuarios', loadChildren: () => import('./incidencias/usuarios/usuarios.module').
-                                          then(m => m.UsuariosModule),canActivate: [HasRoleGuard],
+                                          then((m) => m.UsuariosModule),canActivate: [HasRoleGuard],
                                           data: {
                                             allowedRoles: ['admin']
                                           },
 },
  {
   path: 'revision', loadChildren: () => import('./incidencias/revision/revision.module').
-                                          then(m => m.RevisionModule),canActivate: [HasRoleGuard],
+                                          then((m) => m.RevisionModule),canActivate: [HasRoleGuard],
                                           data: {
                                             allowedRoles: ['admin', 'gestor','directivo']
                                           },

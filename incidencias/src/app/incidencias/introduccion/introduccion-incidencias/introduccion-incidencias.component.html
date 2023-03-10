@@ -4,11 +4,12 @@
       <button *ngIf="!isLoged" routerLink="/Login" class="nav-link">Iniciar sesión</button>
     </li>
     <li class="nav-item">
-      <button *ngIf="isLoged && rol !== 'unknow'" routerLink="/dashboard" class="nav-link">Menu</button>
+      <button *ngIf="isLoged && rol !== 'unknow' && rol!==''" routerLink="/dashboard" class="nav-link">Menu</button>
     </li>
     <li class="nav-item">
-      <button *ngIf="isLoged" (click)="logout()" class="nav-link">Log Out</button>  
+      <button *ngIf="isLoged"  (click)="logout()" class="nav-link">Log Out</button>  
       <div  *ngIf="isLoged && rol === 'unknow'" > Espera A Que Tu Cuenta Sea verificada </div>
+      <div *ngIf="isLoged &&  rol===''" >Esta cuenta no existe, crea una cuenta en <button class="nav-link" routerLink="/Login/register">registro</button> </div>
     </li>
   </ul>
 </nav>

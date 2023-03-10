@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginData } from 'src/app/core/model/login-data';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Location } from '@angular/common';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -10,11 +11,13 @@ import { Location } from '@angular/common';
 })
 export class LoginPageComponent implements OnInit {
  error: string ='';
+
  showError: boolean = false;
   constructor( 
     private readonly authService: AuthService,
     private readonly router: Router,
-    private readonly location:Location
+    private readonly location:Location,
+    private fb: FormBuilder,
     ) {
    
    }

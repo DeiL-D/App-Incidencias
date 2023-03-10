@@ -58,7 +58,7 @@ export class HasRoleGuard implements CanActivate {
       tap((hasRole) => {
         if (!hasRole) {
           console.log('Acceso denegado');
-          this.router.navigate(['login']);
+          this.router.navigate(['Login']);
         }
       })
     );

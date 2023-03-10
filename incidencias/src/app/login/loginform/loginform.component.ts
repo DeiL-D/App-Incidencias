@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginData } from '../../../../../firebaseAuth/src/app/interface/login-data';
 
 @Component({
   selector: 'app-loginform',
@@ -12,7 +13,7 @@ export class LoginformComponent implements OnInit {
     email: string;
     password: string;
   }> = new EventEmitter();
-
+ 
   form!: FormGroup;
   constructor(private fb: FormBuilder) { }
 
@@ -32,6 +33,8 @@ export class LoginformComponent implements OnInit {
 
   onSubmit() {
     this.formData.emit(this.form.value);
+    
+    
   }
 
 }
