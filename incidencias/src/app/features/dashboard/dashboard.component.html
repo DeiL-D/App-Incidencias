@@ -16,8 +16,9 @@
   
 
   <div class="menu">
-    <a target="_blank" routerLink="/introduccion" class="btn btn-menu">Introducción</a>
-    <a target="_blank" routerLink="/revision" class="btn btn-menu">Revisión</a>
-    <a target="_blank" *ngIf="rol === 'admin'" routerLink="/usuarios" class="btn btn-menu">Usuarios</a>
+    
+    <a routerLink="/introduccion" class="btn btn-menu">Introducción</a>
+    <a  routerLink="/revision" class="btn btn-menu">Revisión</a>
+    <a  *ngIf="rol === 'admin'" routerLink="/usuarios" class="btn btn-menu">Usuarios</a>
   </div>
 </div>
